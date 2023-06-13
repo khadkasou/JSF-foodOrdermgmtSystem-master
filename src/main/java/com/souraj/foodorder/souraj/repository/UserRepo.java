@@ -4,10 +4,12 @@
  */
 package com.souraj.foodorder.souraj.repository;
 
+import com.souraj.foodorder.souraj.model.User;
+
 /**
  *
  * @author ksouraj
  */
-public interface UserRepo {
+public class UserRepo extends AbstractClass<User>{
     
 }

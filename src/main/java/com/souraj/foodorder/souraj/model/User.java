@@ -13,32 +13,39 @@ import java.util.Set;
  * @author ksouraj
  */
 public class User {
-    
+
 //@Id
 //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    
-int user_id ;
-String firstName;
-String lastName;
-String username;
-String email;
-String password;
-Date createdAt;
-Date updatedAt;
+    int user_id;
+    String firstName;
+    String lastName;
+    String username;
+    String email;
+    String password;
+    Date createdAt;
+    Date updatedAt;
 
-     //many to many relationship with user
+    //many to many relationship with user
     //many user can have many roles
-
 // @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 //    @JoinTable(name="user_roles",
 //        joinColumns = @JoinColumn(name="user_id"),
 //            inverseJoinColumns = @JoinColumn(name="role_id"))
- private Set<Role> roles = new HashSet<>();
+// private Set<Role> roles = new HashSet<>();
+    public User() {
+    }
 
- public User(){
-    
-    
-}
+    public User(int user_id, String firstName, String lastName, String username, String email, String password, Date createdAt, Date updatedAt) {
+        this.user_id = user_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+
+    }
 
 //   @PrePersist
 //    protected void onCreate(){
@@ -49,7 +56,6 @@ Date updatedAt;
 //    protected void onUpdate(){
 //        this.updatedAt = new Date();
 //    }
-
     public int getUser_id() {
         return user_id;
     }
@@ -113,16 +119,4 @@ Date updatedAt;
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-
-
-
 }

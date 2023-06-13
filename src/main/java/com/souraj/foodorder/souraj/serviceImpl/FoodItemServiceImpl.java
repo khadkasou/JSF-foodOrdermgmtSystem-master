@@ -4,10 +4,23 @@
  */
 package com.souraj.foodorder.souraj.serviceImpl;
 
+import com.souraj.foodorder.souraj.model.FoodItem;
+import com.souraj.foodorder.souraj.repository.FoodItemRepo;
+
 /**
  *
  * @author ksouraj
  */
-public class FoodItemServiceImpl {
+public class FoodItemServiceImpl extends FoodItem{
+    
+    public FoodItemServiceImpl(){
+        
+    }
+    
+    public  FoodItem save(FoodItem foodItem, FoodItemRepo foodItemRepo){
+        
+        return foodItemRepo.save(foodItem);
+    }
+    
     
 }

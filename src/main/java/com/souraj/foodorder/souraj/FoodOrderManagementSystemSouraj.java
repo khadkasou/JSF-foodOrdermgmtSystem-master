@@ -4,8 +4,6 @@
 
 package com.souraj.foodorder.souraj;
 
-import com.souraj.foodorder.souraj.model.Category;
-import com.souraj.foodorder.souraj.model.Menu;
 import com.souraj.foodorder.souraj.serviceImpl.UserInput;
 import java.util.Scanner;
 
@@ -24,7 +22,8 @@ public class FoodOrderManagementSystemSouraj {
             System.out.println("What do you want to add?");
             System.out.println("1. Category");
             System.out.println("2. Menu");
-            System.out.println("3. Exit");
+            System.out.println("3. FoodItem");
+            System.out.println("4. Exit");
 
             int choice = sc.nextInt();
 
@@ -36,6 +35,9 @@ public class FoodOrderManagementSystemSouraj {
                     input.menuInput();
                     break;
                 case 3:
+                    input.saveFoodItem();
+                    break;
+                case 4:
                     System.out.println("Exiting...");
                     return;
                 default:

@@ -23,14 +23,15 @@ public class Category {
     public Category() {
     }
 
-
     public Category(int cat_id, String name, Date createdAt, Date updatedAt) {
         this.cat_id = cat_id;
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-    
+
+
+     
 
     public int getCat_id() {
         return cat_id;

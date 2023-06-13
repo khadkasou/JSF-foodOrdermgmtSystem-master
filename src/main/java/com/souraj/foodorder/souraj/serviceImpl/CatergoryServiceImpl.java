@@ -15,7 +15,7 @@ import com.souraj.foodorder.souraj.repository.CategoryRepo;
  */
 public class CatergoryServiceImpl extends CategoryRepo{
     
-    
+    CategoryRepo categoryRepo;
     
     public CatergoryServiceImpl() {
     }
@@ -30,7 +30,9 @@ public class CatergoryServiceImpl extends CategoryRepo{
     
     
    
-    
+    public Category findById(int id ){
+        return categoryRepo.findById(id);
+    }
     
     
 }

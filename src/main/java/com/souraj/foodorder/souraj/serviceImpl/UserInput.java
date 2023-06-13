@@ -8,6 +8,7 @@ import com.souraj.foodorder.souraj.model.Category;
 import com.souraj.foodorder.souraj.model.FoodItem;
 import com.souraj.foodorder.souraj.model.Menu;
 import com.souraj.foodorder.souraj.repository.CategoryRepo;
+import com.souraj.foodorder.souraj.repository.FoodItemRepo;
 import com.souraj.foodorder.souraj.repository.MenuRepo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +23,9 @@ public class UserInput {
     CategoryRepo categoryRepo = new CategoryRepo();
     
     MenuRepo menuRepo = new MenuRepo();
+    
+    FoodItemRepo foodItemRepo = new FoodItemRepo();
+    
     
 
     public  Boolean categoryInput() {
@@ -79,16 +83,28 @@ public class UserInput {
     
      public Boolean saveFoodItem(){
          
-        System.out.println("Enter the foodItem: ");
+         System.out.println("Enter the foodItem: ");
          
+         FoodItem food = new FoodItem(); 
          Scanner  sc = new Scanner(System.in);
          
          System.out.println("Enter id: ");
-        
+          food.setFoo_id(sc.nextInt());
+          
+         System.out.println("Enter name: ");
+         food.setName(sc.next());
          
-         System.out.println("Enter price: ");
-         
+         System.out.println("Enter Description: ");
+         food.setDescription(sc.next());
        
+         System.out.println("Enter price: ");
+         food.setPrice(sc.nextDouble());
+         
+         FoodItemServiceImpl foodItemService = new FoodItemServiceImpl();
+         
+         food = foodItemService.save(food, foodItemRepo);
+         
+         System.out.println(food);
         
         return true; 
      }
