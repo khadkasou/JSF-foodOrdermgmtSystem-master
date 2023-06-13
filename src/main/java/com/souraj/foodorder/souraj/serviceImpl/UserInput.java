@@ -21,9 +21,7 @@ import java.util.Scanner;
 public class UserInput {
     
     CategoryRepo categoryRepo = new CategoryRepo();
-    
     MenuRepo menuRepo = new MenuRepo();
-    
     FoodItemRepo foodItemRepo = new FoodItemRepo();
     
     
@@ -108,5 +106,7 @@ public class UserInput {
         
         return true; 
      }
+     
+     
          
 }

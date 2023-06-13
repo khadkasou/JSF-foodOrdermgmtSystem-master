@@ -22,8 +22,6 @@ private Double price;
 private Date createdAt;
 private Date updatedAt;
 
-
-
     public FoodItem() {
         
     }
@@ -77,13 +75,6 @@ private Date updatedAt;
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    @Override
-    public String toString() {
-        return "FoodItem{" + "foo_id=" + foo_id + ", name=" + name + ", description=" + description + ", price=" + price + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
-    }
-
-    
 
 
   

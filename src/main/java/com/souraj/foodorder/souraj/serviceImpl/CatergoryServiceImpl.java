@@ -21,7 +21,6 @@ public class CatergoryServiceImpl extends CategoryRepo{
     }
     
     
-    
     public Category save(Category clazz, CategoryRepo categoryRepo) {
         
     return  categoryRepo.save( clazz);
@@ -30,9 +29,12 @@ public class CatergoryServiceImpl extends CategoryRepo{
     
     
    
-    public Category findById(int id ){
+    
+    public Category findById(int id  ){
         return categoryRepo.findById(id);
     }
+    
+    
     
     
 }
