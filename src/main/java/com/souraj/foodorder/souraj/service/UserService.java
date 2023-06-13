@@ -4,24 +4,11 @@
  */
 package com.souraj.foodorder.souraj.service;
 
-import com.souraj.foodorder.souraj.model.User;
-import java.util.List;
 
 /**
  *
  * @author ksouraj
  */
 public interface UserService {
-
- User save(User user);
- 
- void deleteById(int user_id);
- 
- User findById(int user_id);
- 
- List<User> findAll();
- 
- User updateUser(int user_id);
- 
- 
+    
 }

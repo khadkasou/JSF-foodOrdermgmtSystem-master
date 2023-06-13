@@ -16,6 +16,7 @@ public class User {
     
 //@Id
 //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    
 int user_id ;
 String firstName;
 String lastName;
@@ -24,6 +25,7 @@ String email;
 String password;
 Date createdAt;
 Date updatedAt;
+
      //many to many relationship with user
     //many user can have many roles
 
@@ -31,7 +33,7 @@ Date updatedAt;
 //    @JoinTable(name="user_roles",
 //        joinColumns = @JoinColumn(name="user_id"),
 //            inverseJoinColumns = @JoinColumn(name="role_id"))
-    private Set<Role> roles = new HashSet<>();
+ private Set<Role> roles = new HashSet<>();
 
  public User(){
     

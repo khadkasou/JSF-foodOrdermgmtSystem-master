@@ -4,14 +4,10 @@
  */
 package com.souraj.foodorder.souraj.serviceImpl;
 
-import com.souraj.foodorder.souraj.model.User;
-import com.souraj.foodorder.souraj.service.UserService;
-import java.util.List;
-
 /**
  *
  * @author ksouraj
  */
-public class UserServiceImpl implements UserService {
-
+public class FoodItemServiceImpl {
+    
 }

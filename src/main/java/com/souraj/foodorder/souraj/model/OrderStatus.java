@@ -8,6 +8,13 @@ package com.souraj.foodorder.souraj.model;
  *
  * @author ksouraj
  */
-public class OrderStatus {
-    
+public enum OrderStatus { 
+    PENDING,
+    PROCESSING,
+    READY_FOR_PICKUP,
+    OUT_FOR_DELIVER,
+    DELIVERED,
+    CANCELLED,
+    ON_HOLD,
+    COMPLETED
 }

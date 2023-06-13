@@ -6,25 +6,31 @@ package com.souraj.foodorder.souraj.model;
 
 import java.util.Date;
 
+
+
 /**
  *
  * @author ksouraj
  */
-public class Category {
 
-int cat_id;
-String name;
-Date createdAt;
-Date updatedAt;
-
+public class Category { 
+    int cat_id;
+    String name;
+    Date createdAt;
+    Date updatedAt;
+   
+     
     public Category() {
     }
 
-    public Category(String name, Date createdAt, Date updatedAt) {
+
+    public Category(int cat_id, String name, Date createdAt, Date updatedAt) {
+        this.cat_id = cat_id;
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+    
 
     public int getCat_id() {
         return cat_id;
@@ -34,7 +40,6 @@ Date updatedAt;
         this.cat_id = cat_id;
     }
 
-    
     public String getName() {
         return name;
     }
@@ -57,9 +62,13 @@ Date updatedAt;
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+        
+        
     }
-
-
-
-
+    @Override
+    public String toString() {
+        return "Category{" + "cat_id=" + cat_id + ", name=" + name + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+    }
+    
+    
 }
