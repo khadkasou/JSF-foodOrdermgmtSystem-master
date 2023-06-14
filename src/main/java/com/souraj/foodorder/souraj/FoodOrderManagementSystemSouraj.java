@@ -80,10 +80,10 @@ public class FoodOrderManagementSystemSouraj {
 
     private static void MenuAction(UserInput input, Scanner sc) {
         System.out.println("What do you want to do?");
-        System.out.println("a. Add Category");
-        System.out.println("b. List Category");
-        System.out.println("c. Update Category");
-        System.out.println("d. Delete Category");
+        System.out.println("a. Add Menu");
+        System.out.println("b. List Menu");
+        System.out.println("c. Update Menu");
+        System.out.println("d. Delete Menu");
         String choose = sc.next();
 
         switch (choose) {
@@ -99,10 +99,10 @@ public class FoodOrderManagementSystemSouraj {
 
     private static void FoodItemAction(UserInput input, Scanner sc) {
         System.out.println("What do you want to do?");
-        System.out.println("a. Add Category");
-        System.out.println("b. List Category");
-        System.out.println("c. Update Category");
-        System.out.println("d. Delete Category");
+        System.out.println("a. Add FoodItem");
+        System.out.println("b. List FoodItem");
+        System.out.println("c. Update FoodItem");
+        System.out.println("d. Delete FoodItem");
         String choose = sc.next();
 
         switch (choose) {
