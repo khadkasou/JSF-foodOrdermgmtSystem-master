@@ -6,12 +6,14 @@ package com.souraj.foodorder.souraj.serviceImpl;
 
 import com.souraj.foodorder.souraj.model.FoodItem;
 import com.souraj.foodorder.souraj.repository.FoodItemRepo;
+import java.util.List;
 
 /**
  *
  * @author ksouraj
  */
 public class FoodItemServiceImpl extends FoodItem{
+    
     
     public FoodItemServiceImpl(){
         
@@ -23,6 +25,12 @@ public class FoodItemServiceImpl extends FoodItem{
     }
     
     
+   public List<FoodItem> findAllFoodItem(FoodItemRepo foodItemRepo){
+       
+      return foodItemRepo.findAll();
+       
+   }
     
-    
+   
+   
 }

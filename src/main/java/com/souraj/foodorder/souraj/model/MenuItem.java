@@ -9,11 +9,44 @@ package com.souraj.foodorder.souraj.model;
  * @author ksouraj
  */
 public class MenuItem {
+     
   private  int id ;
 //  private Menu menu;
 //  private FoodItem foodItem;
   private  Double price;
   
+  
+    public MenuItem() {
+    }
+
+    public MenuItem(int id, Double price) {
+        this.id = id;
+        this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" + "id=" + id + ", price=" + price + "}\n";
+    }
+    
+    
+    
   
   
 }

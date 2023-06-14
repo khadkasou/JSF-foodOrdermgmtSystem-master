@@ -4,7 +4,7 @@
  */
 package com.souraj.foodorder.souraj.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 
@@ -14,33 +14,31 @@ import java.util.Date;
  */
 
 public class Category { 
-    int cat_id;
+    int id;
     String name;
-    Date createdAt;
-    Date updatedAt;
+    LocalDate createdAt;
+    LocalDate updatedAt;
    
      
     public Category() {
     }
 
-    public Category(int cat_id, String name, Date createdAt, Date updatedAt) {
-        this.cat_id = cat_id;
+    public Category(int id, String name, LocalDate createdAt, LocalDate updatedAt) {
+        this.id = id;
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-
-     
-
-    public int getCat_id() {
-        return cat_id;
+    public int getId() {
+        return id;
     }
 
-    public void setCat_id(int cat_id) {
-        this.cat_id = cat_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
+   
     public String getName() {
         return name;
     }
@@ -49,27 +47,29 @@ public class Category {
         this.name = name;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
-        
-        
     }
+
     @Override
     public String toString() {
-        return "Category{" + "cat_id=" + cat_id + ", name=" + name + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+        return "Category{" + "id=" + id + ", name=" + name + ", "
+                + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
-    
-    
+
+   
+
+  
 }

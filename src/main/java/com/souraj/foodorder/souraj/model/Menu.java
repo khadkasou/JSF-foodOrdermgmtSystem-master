@@ -16,7 +16,8 @@ public class Menu {
     public Menu() {
     }
 
- public Menu(int menu_id, String name, LocalDate fromDate, LocalDate toDate, Date createdAt, Date updatedAt) {
+ public Menu(int menu_id, String name, LocalDate fromDate, 
+         LocalDate toDate, Date createdAt, Date updatedAt) {
         this.menu_id = menu_id;
         this.name = name;
         this.fromDate = fromDate;
@@ -80,7 +81,9 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "Menu{" + "menu_id=" + menu_id + ", name=" + name + ", fromDate=" + fromDate + ", toDate=" + toDate + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+        return "Menu{" + "menu_id=" + menu_id + ", name=" + name + ", fromDate="
+                + fromDate + ", toDate=" + toDate + ", createdAt=" 
+                + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
     
     

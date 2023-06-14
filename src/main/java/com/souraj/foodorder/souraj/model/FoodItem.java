@@ -22,10 +22,21 @@ private Double price;
 private Date createdAt;
 private Date updatedAt;
 
+   
+
     public FoodItem() {
         
     }
 
+     public FoodItem(int foo_id, String name, String description, Double price, 
+             Date createdAt, Date updatedAt) {
+        this.foo_id = foo_id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
   
 
     public int getFoo_id() {
@@ -72,12 +83,19 @@ private Date updatedAt;
         return updatedAt;
     }
 
+   
+
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
 
-  
+   @Override
+    public String toString() {
+        return "FoodItem{" + "foo_id=" + foo_id + ", name=" + name + ", "
+                + "description=" + description + ", price=" + price + ", "
+                + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
+    }
       
     
 

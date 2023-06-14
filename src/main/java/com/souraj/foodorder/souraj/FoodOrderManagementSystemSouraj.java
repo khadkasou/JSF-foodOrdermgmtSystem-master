@@ -1,7 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 package com.souraj.foodorder.souraj;
 
 import com.souraj.foodorder.souraj.serviceImpl.UserInput;
@@ -14,7 +13,7 @@ import java.util.Scanner;
 public class FoodOrderManagementSystemSouraj {
 
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
         UserInput input = new UserInput();
 
@@ -28,21 +27,22 @@ public class FoodOrderManagementSystemSouraj {
             int choice = sc.nextInt();
 
             switch (choice) {
+
                 case 1:
-                    input.categoryInput();
+                    CategoryAction(input, sc);
                     break;
                 case 2:
-                    input.menuInput();
+                    MenuAction(input, sc);
                     break;
                 case 3:
-                    input.saveFoodItem();
+                    FoodItemAction(input, sc);
                     break;
                 case 4:
                     System.out.println("Exiting...");
                     return;
                 default:
                     System.out.println("Invalid choice!");
-                    continue; 
+                    continue;
             }
 
             System.out.println("Do you want to add more? (Y/N)");
@@ -50,10 +50,70 @@ public class FoodOrderManagementSystemSouraj {
 
             if (addMoreChoice.equalsIgnoreCase("N")) {
                 System.out.println("Exiting...");
-                break; 
+                break;
             }
         }
+
     }
+
+    private static void CategoryAction(UserInput input, Scanner sc) {
+        System.out.println("What do you want to do?");
+        System.out.println("a. Add Category");
+        System.out.println("b. List Category");
+        System.out.println("c. Find  Category");
+        System.out.println("d. Delete Category");
+        String choose = sc.next();
+
+        switch (choose) {
+            case "a":
+                input.categoryInput();
+                break;
+            case "b":
+                input.findAllCategory();
+                break;
+            case "c":
+                input.findCategoryById();
+                break;
+            
+        }
+    }
+
+    private static void MenuAction(UserInput input, Scanner sc) {
+        System.out.println("What do you want to do?");
+        System.out.println("a. Add Category");
+        System.out.println("b. List Category");
+        System.out.println("c. Update Category");
+        System.out.println("d. Delete Category");
+        String choose = sc.next();
+
+        switch (choose) {
+            case "a":
+                input.menuInput();
+                break;
+            case "b":
+                input.findAllFoodItem();
+                break;
+
+        }
+    }
+
+    private static void FoodItemAction(UserInput input, Scanner sc) {
+        System.out.println("What do you want to do?");
+        System.out.println("a. Add Category");
+        System.out.println("b. List Category");
+        System.out.println("c. Update Category");
+        System.out.println("d. Delete Category");
+        String choose = sc.next();
+
+        switch (choose) {
+            case "a":
+                input.saveFoodItem();
+                break;
+            case "b":
+                input.findAllFoodItem();
+                break;
+
+        }
+    }
+
 }
-
-

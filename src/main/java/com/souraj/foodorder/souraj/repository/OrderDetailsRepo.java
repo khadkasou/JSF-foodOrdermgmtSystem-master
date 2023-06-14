@@ -12,4 +12,5 @@ import com.souraj.foodorder.souraj.model.OrderDetails;
  */
 public class OrderDetailsRepo extends AbstractClass<OrderDetails>{
     
+  
 }

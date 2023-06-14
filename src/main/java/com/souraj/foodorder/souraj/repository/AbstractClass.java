@@ -5,11 +5,8 @@
 package com.souraj.foodorder.souraj.repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import javax.annotation.Generated;
+
 
 /**
  *
@@ -45,12 +42,21 @@ public abstract class AbstractClass<T> implements GenericRepo<T>{
 
     @Override
     public T findById(int id) {
-       return database.get(id);
+      return database.get(id);
+      
     }
+//    @Override
+//     public T findById(int id) {
+//    if (id >= 0 && id < database.size()) {
+//        return database.get(id);
+//    } else {
+//        return null;
+//    }
+//}
 
     @Override
     public T updateById(T Object, int id) {
-        return updateById(Object, id);
+        return updateById(Object,id);
     
     }
     

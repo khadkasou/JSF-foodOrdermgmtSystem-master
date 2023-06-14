@@ -4,11 +4,25 @@
  */
 package com.souraj.foodorder.souraj.serviceImpl;
 
+import com.souraj.foodorder.souraj.model.User;
+import com.souraj.foodorder.souraj.repository.UserRepo;
 
+import java.util.List;
 /**
  *
  * @author ksouraj
  */
-public class UserServiceImpl {
+public class UserServiceImpl extends UserRepo{
 
+    public UserServiceImpl(){
+        
+    }
+    
+    public User saveUser(User user, UserRepo userRepo){
+        return userRepo.save(user);
+    }
+    
+    public List<User> findAllUser(UserRepo userRepo){
+        return userRepo.findAll();
+    }
 }

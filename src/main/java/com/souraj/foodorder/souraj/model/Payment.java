@@ -23,7 +23,8 @@ public class Payment {
     public Payment() {
     }
 
-    public Payment(int id, LocalDate date, Double vat, Double serviceCharge, Double discount, Double total) {
+    public Payment(int id, LocalDate date, Double vat, Double serviceCharge, 
+            Double discount, Double total) {
         this.id = id;
         this.date = date;
         this.vat = vat;
@@ -82,7 +83,9 @@ public class Payment {
 
     @Override
     public String toString() {
-        return "Payment{" + "id=" + id + ", date=" + date + ", vat=" + vat + ", serviceCharge=" + serviceCharge + ", discount=" + discount + ", total=" + total + '}';
+        return "Payment{" + "id=" + id + ", date=" + date + ", vat=" + vat + ", "
+                + "serviceCharge=" + serviceCharge + ", "
+                + "discount=" + discount + ", total=" + total + "}\n";
     }
   
   

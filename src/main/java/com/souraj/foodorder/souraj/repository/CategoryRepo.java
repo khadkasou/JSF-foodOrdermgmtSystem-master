@@ -5,7 +5,6 @@
 package com.souraj.foodorder.souraj.repository;
 
 import com.souraj.foodorder.souraj.model.Category;
-import java.util.List;
 
 
 /**
@@ -13,6 +12,8 @@ import java.util.List;
  * @author ksouraj
  */
 public class CategoryRepo extends AbstractClass<Category>{  
+
+
  
  
 }

@@ -1,14 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
-package com.souraj.foodorder.souraj.service;
-
-
-/**
- *
- * @author ksouraj
- */
-public interface UserService {
-    
-}
+///*
+// * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+// * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+// */
+//package com.souraj.foodorder.souraj.service;
+//
+//
+///**
+// *
+// * @author ksouraj
+// */
+//public interface UserService {
+//    
+//}

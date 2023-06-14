@@ -11,5 +11,5 @@ import com.souraj.foodorder.souraj.model.User;
  * @author ksouraj
  */
 public class UserRepo extends AbstractClass<User>{
-    
+  
 }

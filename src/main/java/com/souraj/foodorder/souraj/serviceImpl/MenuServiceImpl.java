@@ -6,6 +6,7 @@ package com.souraj.foodorder.souraj.serviceImpl;
 
 import com.souraj.foodorder.souraj.model.Menu;
 import com.souraj.foodorder.souraj.repository.MenuRepo;
+import java.util.List;
 
 /**
  *
@@ -21,6 +22,12 @@ public class MenuServiceImpl {
     
     public  Menu save(Menu clazz, MenuRepo menuRepo){
         return menuRepo.save(clazz);
+    }
+    
+    
+    public List<Menu> findAll(MenuRepo menuRepo){
+        
+        return menuRepo.findAll();
     }
     
 }

@@ -4,6 +4,7 @@
  */
 package com.souraj.foodorder.souraj.repository;
 
+
 import com.souraj.foodorder.souraj.model.FoodItem;
 
 /**
@@ -11,5 +12,7 @@ import com.souraj.foodorder.souraj.model.FoodItem;
  * @author ksouraj
  */
 public class FoodItemRepo extends AbstractClass<FoodItem>{
+
+   
     
 }

@@ -24,7 +24,8 @@ public class Order {
     public Order() {
     }
 
-    public Order(int order_id, LocalDate orderDate, String remarks, String description, LocalDate createdAt, LocalDate updatedAt) {
+    public Order(int order_id, LocalDate orderDate, String remarks, 
+            String description, LocalDate createdAt, LocalDate updatedAt) {
         this.order_id = order_id;
         this.orderDate = orderDate;
         this.remarks = remarks;
@@ -83,7 +84,9 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "order_id=" + order_id + ", orderDate=" + orderDate + ", remarks=" + remarks + ", description=" + description + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+        return "Order{" + "order_id=" + order_id + ", orderDate=" + orderDate + ", "
+                + "remarks=" + remarks + ", description=" + description + ", "
+                + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
  
  

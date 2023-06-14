@@ -11,5 +11,5 @@ import com.souraj.foodorder.souraj.model.Menu;
  * @author ksouraj
  */
 public class MenuRepo extends AbstractClass<Menu>{
-    
+
 }
