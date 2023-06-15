@@ -42,16 +42,17 @@ public class CatergoryServiceImpl extends CategoryRepo{
      
   }
   
-//  public  Category updateById(Category category,int id ,CategoryRepo categoryRepo){
-//      
-//      return categoryRepo.updateById(category, id);
-//      
-//  }
-//    
-//  public  void deleteById(int id, CategoryRepo categoryRepo){
-//      categoryRepo.deleteById(id);
-//  }
-//    
+  public  Category updateById(Category category,int id ,CategoryRepo categoryRepo){
+      
+      return categoryRepo.updateById(category, id);
+      
+  }
+    
+  public  void deleteById(int id, CategoryRepo categoryRepo){
+      
+      categoryRepo.deleteById(id);
+  }
+    
     
     
 }

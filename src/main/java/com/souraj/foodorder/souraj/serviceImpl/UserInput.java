@@ -15,6 +15,7 @@ import com.souraj.foodorder.souraj.repository.UserRepo;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.List;
 
 
 /**
@@ -46,15 +47,15 @@ public class UserInput {
         System.out.println("enter category name: ");
         cat.setName(sc.next());
         
-        System.out.println("Enter createdAt: ");
-        String createdAtStr = sc.next();
-        LocalDate createdAt = LocalDate.parse(createdAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        cat.setCreatedAt(createdAt);
-        
-        System.out.println("Enter updatedAt: ");
-        String updatedAtStr = sc.next();
-        LocalDate updatedAt = LocalDate.parse(updatedAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        cat.setUpdatedAt(updatedAt);
+//        System.out.println("Enter createdAt: ");
+//        String createdAtStr = sc.next();
+//        LocalDate createdAt = LocalDate.parse(createdAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//        cat.setCreatedAt(createdAt);
+//        
+//        System.out.println("Enter updatedAt: ");
+//        String updatedAtStr = sc.next();
+//        LocalDate updatedAt = LocalDate.parse(updatedAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//        cat.setUpdatedAt(updatedAt);
         
        
         catergoryService.save(cat,categoryRepo);
@@ -171,24 +172,67 @@ public Boolean findCategoryById() {
     int id = sc.nextInt();
     sc.nextLine();
     
-    Category cat = categoryRepo.findById(id);
+       Category category =categoryRepo.findById(id);
     
-    if (cat != null) {
+    if (category != null) {
         System.out.println("Category details:");
-        System.out.println("ID: " + cat.getId());
-        System.out.println("Name: " + cat.getName());
-        System.out.println("CreatedAt: "+ cat.getCreatedAt());
-        System.out.println("UpdateAt: "+ cat.getUpdatedAt());
+        System.out.println("ID: " + category.getId());
+        System.out.println("Name: " + category.getName());
+        System.out.println("CreatedAt: "+ category.getCreatedAt());
+        System.out.println("UpdateAt: "+ category.getUpdatedAt());
         return true;
         
     } else {
-        System.out.println("Category not found.");
+        System.out.println("Id not found.");
+        return false;
+    }
+}
+
+
+public Boolean deleteCategory() {
+    System.out.println("Enter the category ID to delete:");
+    int id = sc.nextInt();
+    sc.nextLine();
+
+    Category cate = categoryRepo.findById(id);
+
+    if (cate != null) {
+        //categoryRepo.getDatabase().remove(id);
+        
+        categoryRepo.deleteById(cate.getId());
+        System.out.println("Category deleted successfully.");
+        return true;
+    } else {
+        System.out.println("ID not found.");
         return false;
     }
 }
 
 
 
-      
+   
+
+public Boolean updateCategory() {
+    System.out.println("Enter the category ID to update:");
+    int id = sc.nextInt();
+    sc.nextLine();
+    
+    Category category = categoryRepo.findById(id);
+
+    if (category != null) {
+        System.out.println("Enter new category name:");
+        String newName = sc.nextLine();
+        category.setName(newName);
+
+        category = categoryRepo.updateById(category,id);
+        return true;
+    } else {
+        System.out.println("ID not found.");
+        return false;
+    }
+}
+
+   
+
       
 }

@@ -4,6 +4,7 @@
  */
 package com.souraj.foodorder.souraj.model;
 
+import com.souraj.foodorder.souraj.repository.Iid;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +13,7 @@ import java.util.Set;
  *
  * @author ksouraj
  */
-public class User {
+public class User implements Iid{
 
 //@Id
 //@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -126,6 +127,11 @@ public class User {
                 + "lastName=" + lastName + ", username=" + username + ", "
                 + "email=" + email + ", password=" + password + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "\n";
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

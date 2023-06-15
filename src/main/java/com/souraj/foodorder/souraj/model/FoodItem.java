@@ -4,6 +4,7 @@
  */
 package com.souraj.foodorder.souraj.model;
 
+import com.souraj.foodorder.souraj.repository.Iid;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Scanner;
  *
  * @author ksouraj
  */
-public class FoodItem {
+public class FoodItem implements Iid{
 
 private int foo_id;
 private String name;
@@ -95,6 +96,11 @@ private Date updatedAt;
         return "FoodItem{" + "foo_id=" + foo_id + ", name=" + name + ", "
                 + "description=" + description + ", price=" + price + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
       
     

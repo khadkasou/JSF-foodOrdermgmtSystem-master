@@ -4,7 +4,11 @@
  */
 package com.souraj.foodorder.souraj.repository;
 
+import com.souraj.foodorder.souraj.model.Category;
+import com.sun.corba.se.spi.ior.Identifiable;
+import com.sun.xml.internal.ws.spi.db.FieldGetter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -12,11 +16,10 @@ import java.util.List;
  *
  * @author ksouraj
  */
-public abstract class AbstractClass<T> implements GenericRepo<T>{
+public abstract class AbstractClass<T extends Iid> implements GenericRepo<T>{
 
 
-    public  List<T> database;
-       
+    private List<T> database;   
       
     public AbstractClass() {
         
@@ -28,13 +31,15 @@ public abstract class AbstractClass<T> implements GenericRepo<T>{
         database.add(Object);
         return Object;
     }
-
+    
+         
     @Override
-    public void deleteById(int id) {
-        database.remove(id);
+    public void deleteById(int id){
+        T t = findById(id);
+        database.remove(t);
     }
 
-    
+        
     @Override
     public List<T> findAll() {
         return database;
@@ -42,23 +47,37 @@ public abstract class AbstractClass<T> implements GenericRepo<T>{
 
     @Override
     public T findById(int id) {
-      return database.get(id);
+         
+    for (T categ : database) {
+        if (categ.getId() == id) {
+            return categ;
+        }
+    }
+    return null;
       
     }
-//    @Override
-//     public T findById(int id) {
-//    if (id >= 0 && id < database.size()) {
-//        return database.get(id);
-//    } else {
-//        return null;
-//    }
-//}
-
-    @Override
-    public T updateById(T Object, int id) {
-        return updateById(Object,id);
     
+    
+   @Override
+   public T updateById(T obj, int id) {
+    for (int i = 0; i < database.size(); i++) {
+        T t = database.get(i);
+        if (t instanceof Identifiable) {
+            Identifiable identifiable = (Identifiable) t;
+            if (identifiable.getId() == id) {
+                database.set(i, obj);
+                return obj;
+            }
+        }
     }
+    return null; 
+}
+  
+
+
+     
     
     
 }
+
+

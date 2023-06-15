@@ -4,16 +4,13 @@
  */
 package com.souraj.foodorder.souraj.repository;
 
-
-import com.souraj.foodorder.souraj.model.FoodItem;
-
 /**
  *
  * @author ksouraj
  */
-public class FoodItemRepo extends AbstractClass<FoodItem>{
+public interface Iid {
     
-
-   
+    int getId();
+    
     
 }

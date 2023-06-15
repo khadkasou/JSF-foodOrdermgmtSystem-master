@@ -4,7 +4,9 @@
  */
 package com.souraj.foodorder.souraj.model;
 
+import com.souraj.foodorder.souraj.repository.Iid;
 import java.time.LocalDate;
+
 
 
 
@@ -13,7 +15,7 @@ import java.time.LocalDate;
  * @author ksouraj
  */
 
-public class Category { 
+public class Category implements Iid{ 
     int id;
     String name;
     LocalDate createdAt;
@@ -30,6 +32,7 @@ public class Category {
         this.updatedAt = updatedAt;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -68,6 +71,8 @@ public class Category {
         return "Category{" + "id=" + id + ", name=" + name + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
+
+    
 
    
 

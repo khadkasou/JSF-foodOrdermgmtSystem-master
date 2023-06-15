@@ -61,7 +61,8 @@ public class FoodOrderManagementSystemSouraj {
         System.out.println("a. Add Category");
         System.out.println("b. List Category");
         System.out.println("c. Find  Category");
-        System.out.println("d. Delete Category");
+        System.out.println("d. Update Category");
+        System.out.println("e. Delete Category");
         String choose = sc.next();
 
         switch (choose) {
@@ -74,6 +75,13 @@ public class FoodOrderManagementSystemSouraj {
             case "c":
                 input.findCategoryById();
                 break;
+            case "d":
+                input.updateCategory();
+                break;
+            case "e":
+                input.deleteCategory();
+                break;
+            
             
         }
     }

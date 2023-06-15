@@ -4,13 +4,14 @@
  */
 package com.souraj.foodorder.souraj.model;
 
+import java.lang.annotation.Inherited;
 import java.time.LocalDate;
 
 /**
  *
  * @author ksouraj
  */
-public class Order {
+public class Order{
     
  private int order_id;
 // private OrderStatus orderStatus;

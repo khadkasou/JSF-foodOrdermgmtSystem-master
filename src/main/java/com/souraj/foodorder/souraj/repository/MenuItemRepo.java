@@ -10,6 +10,6 @@ import com.souraj.foodorder.souraj.model.MenuItem;
  *
  * @author ksouraj
  */
-public class MenuItemRepo extends AbstractClass<MenuItem>{
+public class MenuItemRepo extends AbstractClass<MenuItem> {
  
 }

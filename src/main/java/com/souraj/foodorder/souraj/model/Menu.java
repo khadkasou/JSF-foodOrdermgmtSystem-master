@@ -1,10 +1,11 @@
 package com.souraj.foodorder.souraj.model;
 
+import com.souraj.foodorder.souraj.repository.Iid;
 import java.time.LocalDate;
 import java.util.Date;
 
 
-public class Menu {
+public class Menu implements Iid{
     int menu_id;
     String name;
     LocalDate fromDate;
@@ -84,6 +85,11 @@ public class Menu {
         return "Menu{" + "menu_id=" + menu_id + ", name=" + name + ", fromDate="
                 + fromDate + ", toDate=" + toDate + ", createdAt=" 
                 + createdAt + ", updatedAt=" + updatedAt + "}\n";
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
