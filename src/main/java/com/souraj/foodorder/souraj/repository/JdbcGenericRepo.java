@@ -3,24 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.souraj.foodorder.souraj.repository;
-
-import java.util.List;
+import java.sql.ResultSet;
 
 /**
  *
  * @author ksouraj
  * @param <T>
  */
-public interface GenericRepo<T> {
+public interface JdbcGenericRepo<T> {
     
     
-   public T save(T Object);
+   public T save(T Object,String query);
     
-   public void deleteById(Long id);
+   public void deleteById(T Object ,Long id);
    
-   public List<T> findAll();
+   public ResultSet findAll(T Object);
    
-   public T findById(Long id);
+   public ResultSet findById(T Obejct,Long id);
    
    public T updateById(T Object, Long id );
        

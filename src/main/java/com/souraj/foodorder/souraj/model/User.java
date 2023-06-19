@@ -4,7 +4,8 @@
  */
 package com.souraj.foodorder.souraj.model;
 
-import com.souraj.foodorder.souraj.repository.Iid;
+import com.souraj.foodorder.souraj.repository.AbstractEntity;
+import com.souraj.foodorder.souraj.repository.IAbstractEntity;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,11 +14,11 @@ import java.util.Set;
  *
  * @author ksouraj
  */
-public class User implements Iid{
+public class User extends AbstractEntity implements IAbstractEntity{
 
 //@Id
 //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    int user_id;
+   
     String firstName;
     String lastName;
     String username;
@@ -36,8 +37,8 @@ public class User implements Iid{
     public User() {
     }
 
-    public User(int user_id, String firstName, String lastName, String username, String email, String password, Date createdAt, Date updatedAt) {
-        this.user_id = user_id;
+    public User(String firstName, String lastName, String username, String email, String password, Date createdAt, Date updatedAt) {
+        
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -57,13 +58,8 @@ public class User implements Iid{
 //    protected void onUpdate(){
 //        this.updatedAt = new Date();
 //    }
-    public int getUser_id() {
-        return user_id;
-    }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
+  
 
     public String getFirstName() {
         return firstName;
@@ -123,16 +119,17 @@ public class User implements Iid{
 
     @Override
     public String toString() {
-        return "User{" + "user_id=" + user_id + ", firstName=" + firstName + ", "
+        return "User{" + "firstName=" + firstName + ", "
                 + "lastName=" + lastName + ", username=" + username + ", "
                 + "email=" + email + ", password=" + password + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "\n";
     }
 
     @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+    public String getTableName() {
+    return "user"; 
+        }
+
+   
     
 }

@@ -8,9 +8,24 @@ package com.souraj.foodorder.souraj.repository;
  *
  * @author ksouraj
  */
-public interface Iid {
+public abstract class AbstractEntity implements IAbstractEntity{
+
+    private Long id;
     
-    int getId();
+    @Override
+    public  void setId(long id){
+        this.id = id;
+    }
+
+    @Override
+    public  Long getId(){
+        return  id;
+    }
+    
+    
+ 
+
+    
     
     
 }

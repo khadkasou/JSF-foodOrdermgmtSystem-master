@@ -3,6 +3,7 @@
  */
 package com.souraj.foodorder.souraj;
 
+import com.souraj.foodorder.souraj.model.Category;
 import com.souraj.foodorder.souraj.serviceImpl.UserInput;
 import java.util.Scanner;
 
@@ -75,9 +76,9 @@ public class FoodOrderManagementSystemSouraj {
             case "c":
                 input.findCategoryById();
                 break;
-            case "d":
-                input.updateCategory();
-                break;
+//            case "d":
+//                input.updateCategory();
+//                break;
             case "e":
                 input.deleteCategory();
                 break;

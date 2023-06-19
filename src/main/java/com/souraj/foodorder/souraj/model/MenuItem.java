@@ -4,13 +4,13 @@
  */
 package com.souraj.foodorder.souraj.model;
 
-import com.souraj.foodorder.souraj.repository.Iid;
+
 
 /**
  *
  * @author ksouraj
  */
-public class MenuItem implements Iid{
+public class MenuItem{
      
   private  int id ;
 //  private Menu menu;

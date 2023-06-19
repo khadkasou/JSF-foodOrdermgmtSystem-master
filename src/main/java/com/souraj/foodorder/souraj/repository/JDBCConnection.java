@@ -4,18 +4,13 @@
  */
 package com.souraj.foodorder.souraj.repository;
 
-import com.souraj.foodorder.souraj.model.Category;
-
-
-
 /**
  *
  * @author ksouraj
  */
-public class CategoryRepo extends JdbcAbstractClass<Category>{  
-
-
-
- 
- 
+public class JDBCConnection {
+    
+    
+    
+    
 }

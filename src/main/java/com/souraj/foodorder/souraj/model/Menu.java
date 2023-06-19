@@ -1,12 +1,13 @@
 package com.souraj.foodorder.souraj.model;
 
-import com.souraj.foodorder.souraj.repository.Iid;
+
+import com.souraj.foodorder.souraj.repository.AbstractEntity;
+import com.souraj.foodorder.souraj.repository.IAbstractEntity;
 import java.time.LocalDate;
 import java.util.Date;
 
 
-public class Menu implements Iid{
-    int menu_id;
+public class Menu extends AbstractEntity implements IAbstractEntity {
     String name;
     LocalDate fromDate;
     LocalDate toDate;
@@ -17,9 +18,8 @@ public class Menu implements Iid{
     public Menu() {
     }
 
- public Menu(int menu_id, String name, LocalDate fromDate, 
+ public Menu(String name, LocalDate fromDate, 
          LocalDate toDate, Date createdAt, Date updatedAt) {
-        this.menu_id = menu_id;
         this.name = name;
         this.fromDate = fromDate;
         this.toDate = toDate;
@@ -27,14 +27,6 @@ public class Menu implements Iid{
         this.updatedAt = updatedAt;
     }
  
- 
-    public int getMenu_id() {
-        return menu_id;
-    }
-
-    public void setMenu_id(int menu_id) {
-        this.menu_id = menu_id;
-    }
 
     public String getName() {
         return name;
@@ -82,15 +74,17 @@ public class Menu implements Iid{
 
     @Override
     public String toString() {
-        return "Menu{" + "menu_id=" + menu_id + ", name=" + name + ", fromDate="
+        return "Menu{" + "name=" + name + ", fromDate="
                 + fromDate + ", toDate=" + toDate + ", createdAt=" 
                 + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
 
     @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getTableName() {
+        return "menu";
     }
-    
+
+ 
+   
     
 }

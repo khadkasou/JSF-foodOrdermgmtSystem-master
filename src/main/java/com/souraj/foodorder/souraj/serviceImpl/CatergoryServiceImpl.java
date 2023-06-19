@@ -6,7 +6,13 @@ package com.souraj.foodorder.souraj.serviceImpl;
 
 import com.souraj.foodorder.souraj.model.Category;
 import com.souraj.foodorder.souraj.repository.CategoryRepo;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -22,35 +28,40 @@ public class CatergoryServiceImpl extends CategoryRepo{
     }
     
     
-    public Category save(Category clazz, CategoryRepo categoryRepo) {
+    public Category save(Category clazz, CategoryRepo categoryRepo, String query) {
         
-    return  categoryRepo.save( clazz);
+    return  categoryRepo.save( clazz, query);
     }
 
     
     
-  public Category findById(int id, CategoryRepo categoryRepo) {
+  public ResultSet findById(Long id, CategoryRepo categoryRepo) {
          
-    return categoryRepo.findById(id);
+        ResultSet resultSet = categoryRepo.findById(new Category(), id);
+        return resultSet;
 }
 
     
     
-  public  List<Category> findAll(CategoryRepo categoryRepo){
-
-      return  categoryRepo.findAll();
-     
+  public  ResultSet findAll(CategoryRepo categoryRepo){
+   ResultSet resultSet = categoryRepo.findAll(new Category());
+       
+   return resultSet;
   }
   
-  public  Category updateById(Category category,int id ,CategoryRepo categoryRepo){
+  
+  
+  
+  
+  public  Category updateById(Category category,Long id ,CategoryRepo categoryRepo){
       
       return categoryRepo.updateById(category, id);
       
   }
     
-  public  void deleteById(int id, CategoryRepo categoryRepo){
+  public  void deleteById(Long id, CategoryRepo categoryRepo, Category category){
       
-      categoryRepo.deleteById(id);
+      categoryRepo.deleteById(category,id);
   }
     
     

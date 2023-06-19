@@ -4,7 +4,8 @@
  */
 package com.souraj.foodorder.souraj.model;
 
-import com.souraj.foodorder.souraj.repository.Iid;
+import com.souraj.foodorder.souraj.repository.AbstractEntity;
+import com.souraj.foodorder.souraj.repository.IAbstractEntity;
 import java.time.LocalDate;
 
 
@@ -15,8 +16,8 @@ import java.time.LocalDate;
  * @author ksouraj
  */
 
-public class Category implements Iid{ 
-    int id;
+public class Category extends AbstractEntity implements IAbstractEntity{ 
+ 
     String name;
     LocalDate createdAt;
     LocalDate updatedAt;
@@ -25,23 +26,14 @@ public class Category implements Iid{
     public Category() {
     }
 
-    public Category(int id, String name, LocalDate createdAt, LocalDate updatedAt) {
-        this.id = id;
+    public Category(String name, LocalDate createdAt, LocalDate updatedAt) {
+       
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-   
+    
     public String getName() {
         return name;
     }
@@ -68,9 +60,19 @@ public class Category implements Iid{
 
     @Override
     public String toString() {
-        return "Category{" + "id=" + id + ", name=" + name + ", "
+        return "Category{ id=" + super.getId() + "," + " name=" + name + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
+
+
+
+    @Override
+    public String getTableName() {
+        return "Category";
+    }
+
+  
+
 
     
 

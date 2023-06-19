@@ -3,10 +3,14 @@
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/service/FoodItemService.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/UserRepo.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/model/Menu.java
+/home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/JdbcAbstractClass.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/model/User.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/model/OrderDetails.java
+/home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/AbstractEntity.java
+/home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/JdbcGenericRepo.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/serviceImpl/UserInput.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/model/Role.java
+/home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/JDBCConnection.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/CategoryRepo.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/serviceImpl/FoodItemServiceImpl.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/model/Order.java
@@ -17,6 +21,7 @@
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/serviceImpl/CatergoryServiceImpl.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/service/UserService.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/OrderDetailsRepo.java
+/home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/IAbstractEntity.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/FoodItemRepo.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/service/CategoryService.java
 /home/ksouraj/NetBeansProjects/foodOrderManagementSystem-Souraj/src/main/java/com/souraj/foodorder/souraj/repository/OrderRepo.java

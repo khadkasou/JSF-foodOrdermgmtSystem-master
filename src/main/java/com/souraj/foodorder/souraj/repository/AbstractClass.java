@@ -6,7 +6,6 @@ package com.souraj.foodorder.souraj.repository;
 
 import com.souraj.foodorder.souraj.model.Category;
 import com.sun.corba.se.spi.ior.Identifiable;
-import com.sun.xml.internal.ws.spi.db.FieldGetter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,15 +15,18 @@ import java.util.List;
  *
  * @author ksouraj
  */
-public abstract class AbstractClass<T extends Iid> implements GenericRepo<T>{
+public abstract class AbstractClass<T extends IAbstractEntity> implements GenericRepo<T>{
 
 
-    private List<T> database;   
-      
-    public AbstractClass() {
-        
+    private List<T> database ;
+    
+    
+    
+    public AbstractClass(){
         database = new ArrayList<>();
+     
     }
+      
     
     @Override
     public T save(T Object) {
@@ -34,7 +36,7 @@ public abstract class AbstractClass<T extends Iid> implements GenericRepo<T>{
     
          
     @Override
-    public void deleteById(int id){
+    public void deleteById(Long id){
         T t = findById(id);
         database.remove(t);
     }
@@ -46,7 +48,7 @@ public abstract class AbstractClass<T extends Iid> implements GenericRepo<T>{
     }
 
     @Override
-    public T findById(int id) {
+    public T findById(Long id) {
          
     for (T categ : database) {
         if (categ.getId() == id) {
@@ -59,7 +61,7 @@ public abstract class AbstractClass<T extends Iid> implements GenericRepo<T>{
     
     
    @Override
-   public T updateById(T obj, int id) {
+   public T updateById(T obj, Long id) {
     for (int i = 0; i < database.size(); i++) {
         T t = database.get(i);
         if (t instanceof Identifiable) {
@@ -72,12 +74,7 @@ public abstract class AbstractClass<T extends Iid> implements GenericRepo<T>{
     }
     return null; 
 }
-  
 
 
-     
-    
-    
+
 }
-
-

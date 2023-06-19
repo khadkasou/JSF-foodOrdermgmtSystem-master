@@ -4,7 +4,8 @@
  */
 package com.souraj.foodorder.souraj.model;
 
-import com.souraj.foodorder.souraj.repository.Iid;
+import com.souraj.foodorder.souraj.repository.AbstractEntity;
+import com.souraj.foodorder.souraj.repository.IAbstractEntity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,9 +15,7 @@ import java.util.Scanner;
  *
  * @author ksouraj
  */
-public class FoodItem implements Iid{
-
-private int foo_id;
+public class FoodItem extends AbstractEntity implements IAbstractEntity{
 private String name;
 private String description;
 private Double price;
@@ -29,25 +28,14 @@ private Date updatedAt;
         
     }
 
-     public FoodItem(int foo_id, String name, String description, Double price, 
+     public FoodItem(String name, String description, Double price, 
              Date createdAt, Date updatedAt) {
-        this.foo_id = foo_id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-  
-
-    public int getFoo_id() {
-        return foo_id;
-    }
-
-    public void setFoo_id(int foo_id) {
-        this.foo_id = foo_id;
-    }
-
     public String getName() {
         return name;
     }
@@ -93,16 +81,16 @@ private Date updatedAt;
 
    @Override
     public String toString() {
-        return "FoodItem{" + "foo_id=" + foo_id + ", name=" + name + ", "
+        return "FoodItem{" + "name=" + name + ", "
                 + "description=" + description + ", price=" + price + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
 
     @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getTableName() {
+        return "foodItem";
     }
-      
+
     
 
 }

@@ -4,13 +4,11 @@
  */
 package com.souraj.foodorder.souraj.model;
 
-import com.souraj.foodorder.souraj.repository.Iid;
-
 /**
  *
  * @author ksouraj
  */
-public class OrderDetails implements Iid{
+public class OrderDetails{
 
  private  int id;
  private Double quantity;

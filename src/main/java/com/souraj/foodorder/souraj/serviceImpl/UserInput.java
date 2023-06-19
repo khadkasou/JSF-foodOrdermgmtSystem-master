@@ -12,8 +12,11 @@ import com.souraj.foodorder.souraj.repository.CategoryRepo;
 import com.souraj.foodorder.souraj.repository.FoodItemRepo;
 import com.souraj.foodorder.souraj.repository.MenuRepo;
 import com.souraj.foodorder.souraj.repository.UserRepo;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
@@ -37,28 +40,34 @@ public class UserInput {
     Scanner sc = new Scanner(System.in);
 
        public  Boolean categoryInput() {
+           
+
         Category cat = new Category();
         System.out.println("Add category");
 
         
         System.out.println("Enter category Id: ");
-        cat.setId(sc.nextInt());
+//        cat.setId(sc.nextInt());
+          cat.setId(sc.nextLong());
 
         System.out.println("enter category name: ");
-        cat.setName(sc.next());
+        String name = sc.next();
+        cat.setName(name);
         
-//        System.out.println("Enter createdAt: ");
-//        String createdAtStr = sc.next();
-//        LocalDate createdAt = LocalDate.parse(createdAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-//        cat.setCreatedAt(createdAt);
-//        
-//        System.out.println("Enter updatedAt: ");
-//        String updatedAtStr = sc.next();
-//        LocalDate updatedAt = LocalDate.parse(updatedAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-//        cat.setUpdatedAt(updatedAt);
+        System.out.println("Enter createdAt: ");
+        String createdAtStr = sc.next();
+        LocalDate createdAt = LocalDate.parse(createdAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        cat.setCreatedAt(createdAt);
         
+        System.out.println("Enter updatedAt: ");
+        String updatedAtStr = sc.next();
+        LocalDate updatedAt = LocalDate.parse(updatedAtStr, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        cat.setUpdatedAt(updatedAt);
+        
+        String sql = "INSERT INTO Category (name, createdAt, updatedAt)"
+                 + " VALUES ('"+name+"','"+createdAt+"','"+updatedAt+"')";
        
-        catergoryService.save(cat,categoryRepo);
+        catergoryService.save(cat,categoryRepo,sql);
         System.out.println(cat);
         
         return  true;
@@ -69,8 +78,8 @@ public class UserInput {
         User user = new User();
         System.out.println("Create/Register new user");
         
-        System.out.println("Enter id: ");
-        user.setUser_id(sc.nextInt());
+//        System.out.println("Enter id: ");
+////        user.setUser_id(sc.nextInt());
         
         System.out.println("Enter first name: ");
         user.setFirstName(sc.next());
@@ -97,7 +106,7 @@ public class UserInput {
         System.out.println("Create Menu");
               
         System.out.println("Enter menu Id: ");
-        menu.setMenu_id(sc.nextInt());
+//        menu.setMenu_id(sc.nextInt());
         
         System.out.println("Enter menu name: ");
         menu.setName(sc.next());
@@ -127,7 +136,7 @@ public class UserInput {
          System.out.println("Enter the foodItem: ");
                   
          System.out.println("Enter id: ");
-         food.setFoo_id(sc.nextInt());
+//         food.setFoo_id(sc.nextInt());
           
          System.out.println("Enter name: ");
          food.setName(sc.next());
@@ -146,8 +155,25 @@ public class UserInput {
      
     
       public Boolean findAllCategory(){
-          
-          System.out.println(catergoryService.findAll(categoryRepo)); 
+          ResultSet resultSet = catergoryService.findAll(categoryRepo); 
+          List<Category> cat= new ArrayList<>();
+        try {
+            while (resultSet.next()){
+                Long id = resultSet.getLong(1);
+                String name = resultSet.getString(2);
+                LocalDate createdAt= resultSet.getTimestamp(3).toLocalDateTime().toLocalDate();
+                LocalDate updatedAt = resultSet.getTimestamp(4).toLocalDateTime().toLocalDate();
+                
+                Category category = new Category();
+                category.setId(id);
+                category.setName(name);
+                category.setCreatedAt(createdAt);
+                category.setUpdatedAt(updatedAt);
+                cat.add(category);
+            }       } catch (SQLException ex) {
+                ex.printStackTrace();
+        }
+          System.out.println(cat); 
           
           return true;
       }
@@ -169,37 +195,44 @@ public class UserInput {
 public Boolean findCategoryById() {
     System.out.println("Enter id:");
     
-    int id = sc.nextInt();
+    Long id = sc.nextLong();
     sc.nextLine();
+    Category category = new Category();
     
-       Category category =categoryRepo.findById(id);
-    
-    if (category != null) {
-        System.out.println("Category details:");
-        System.out.println("ID: " + category.getId());
-        System.out.println("Name: " + category.getName());
-        System.out.println("CreatedAt: "+ category.getCreatedAt());
-        System.out.println("UpdateAt: "+ category.getUpdatedAt());
-        return true;
+      ResultSet resultSet = categoryRepo.findById(category,id);
+     try{
+          if (resultSet != null && resultSet.next()) {
+                Long iid = resultSet.getLong(1);
+                String name = resultSet.getString(2);
+                LocalDate createdAt= resultSet.getTimestamp(3).toLocalDateTime().toLocalDate();
+                LocalDate updatedAt = resultSet.getTimestamp(4).toLocalDateTime().toLocalDate();
         
+                System.out.println("Id "+iid);
+                System.out.println("Name: "+name);
+                System.out.println("CreatedAt "+createdAt);
+                System.out.println("UpdatedAt "+updatedAt);
     } else {
         System.out.println("Id not found.");
         return false;
     }
+         
+     }catch(Exception ex){
+         ex.printStackTrace();
+     }
+   return true;
 }
+
 
 
 public Boolean deleteCategory() {
     System.out.println("Enter the category ID to delete:");
-    int id = sc.nextInt();
+    Long id = sc.nextLong();
     sc.nextLine();
+    Category category = new Category();
+    ResultSet resultSet =categoryRepo.findById(category, id);
 
-    Category cate = categoryRepo.findById(id);
-
-    if (cate != null) {
-        //categoryRepo.getDatabase().remove(id);
-        
-        categoryRepo.deleteById(cate.getId());
+    if (resultSet != null) {
+         categoryRepo.deleteById(category, id);
         System.out.println("Category deleted successfully.");
         return true;
     } else {
@@ -209,28 +242,27 @@ public Boolean deleteCategory() {
 }
 
 
-
    
 
-public Boolean updateCategory() {
-    System.out.println("Enter the category ID to update:");
-    int id = sc.nextInt();
-    sc.nextLine();
-    
-    Category category = categoryRepo.findById(id);
-
-    if (category != null) {
-        System.out.println("Enter new category name:");
-        String newName = sc.nextLine();
-        category.setName(newName);
-
-        category = categoryRepo.updateById(category,id);
-        return true;
-    } else {
-        System.out.println("ID not found.");
-        return false;
-    }
-}
+//public Boolean updateCategory() {
+//    System.out.println("Enter the category ID to update:");
+//    Long id = sc.nextLong();
+//    sc.nextLine();
+//    
+//    Category category = categoryRepo.findById(id);
+//
+//    if (category != null) {
+//        System.out.println("Enter new category name:");
+//        String newName = sc.nextLine();
+//        category.setName(newName);
+//
+//        category = categoryRepo.updateById(category,id);
+//        return true;
+//    } else {
+//        System.out.println("ID not found.");
+//        return false;
+//    }
+//}
 
    
 

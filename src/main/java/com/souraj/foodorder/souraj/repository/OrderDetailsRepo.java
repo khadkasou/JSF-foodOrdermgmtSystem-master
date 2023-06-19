@@ -10,7 +10,7 @@ import com.souraj.foodorder.souraj.model.OrderDetails;
  *
  * @author ksouraj
  */
-public class OrderDetailsRepo extends AbstractClass<OrderDetails>{
+public class OrderDetailsRepo {
     
   
 }
