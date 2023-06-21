@@ -27,13 +27,11 @@ public class Category extends AbstractEntity implements IAbstractEntity{
     }
 
     public Category(String name, LocalDate createdAt, LocalDate updatedAt) {
-       
         this.name = name;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    
     public String getName() {
         return name;
     }
@@ -41,7 +39,9 @@ public class Category extends AbstractEntity implements IAbstractEntity{
     public void setName(String name) {
         this.name = name;
     }
-
+    
+    
+    
     public LocalDate getCreatedAt() {
         return createdAt;
     }
@@ -60,7 +60,7 @@ public class Category extends AbstractEntity implements IAbstractEntity{
 
     @Override
     public String toString() {
-        return "Category{ id=" + super.getId() + "," + " name=" + name + ", "
+        return "Category{ id=" + super.getId() + "," + " name=" +name + ", "
                 + "createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}\n";
     }
 
@@ -70,6 +70,8 @@ public class Category extends AbstractEntity implements IAbstractEntity{
     public String getTableName() {
         return "Category";
     }
+
+    
 
   
 

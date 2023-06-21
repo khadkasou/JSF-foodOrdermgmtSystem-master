@@ -32,12 +32,12 @@ public class FoodOrderManagementSystemSouraj {
                 case 1:
                     CategoryAction(input, sc);
                     break;
-                case 2:
-                    MenuAction(input, sc);
-                    break;
-                case 3:
-                    FoodItemAction(input, sc);
-                    break;
+//                case 2:
+//                    MenuAction(input, sc);
+//                    break;
+//                case 3:
+//                    FoodItemAction(input, sc);
+//                    break;
                 case 4:
                     System.out.println("Exiting...");
                     return;
@@ -76,9 +76,9 @@ public class FoodOrderManagementSystemSouraj {
             case "c":
                 input.findCategoryById();
                 break;
-//            case "d":
-//                input.updateCategory();
-//                break;
+            case "d":
+                input.updateCategory();
+                break;
             case "e":
                 input.deleteCategory();
                 break;
@@ -87,42 +87,42 @@ public class FoodOrderManagementSystemSouraj {
         }
     }
 
-    private static void MenuAction(UserInput input, Scanner sc) {
-        System.out.println("What do you want to do?");
-        System.out.println("a. Add Menu");
-        System.out.println("b. List Menu");
-        System.out.println("c. Update Menu");
-        System.out.println("d. Delete Menu");
-        String choose = sc.next();
-
-        switch (choose) {
-            case "a":
-                input.menuInput();
-                break;
-            case "b":
-                input.findAllFoodItem();
-                break;
-
-        }
+//    private static void MenuAction(UserInput input, Scanner sc) {
+//        System.out.println("What do you want to do?");
+//        System.out.println("a. Add Menu");
+//        System.out.println("b. List Menu");
+//        System.out.println("c. Update Menu");
+//        System.out.println("d. Delete Menu");
+//        String choose = sc.next();
+//
+//        switch (choose) {
+//            case "a":
+//                input.menuInput();
+//                break;
+//            case "b":
+//                input.findAllFoodItem();
+//                break;
+//
+//        }
     }
+//
+//    private static void FoodItemAction(UserInput input, Scanner sc) {
+//        System.out.println("What do you want to do?");
+//        System.out.println("a. Add FoodItem");
+//        System.out.println("b. List FoodItem");
+//        System.out.println("c. Update FoodItem");
+//        System.out.println("d. Delete FoodItem");
+//        String choose = sc.next();
+//
+//        switch (choose) {
+//            case "a":
+//                input.saveFoodItem();
+//                break;
+//            case "b":
+//                input.findAllFoodItem();
+//                break;
+//
+//        }
+//   }
 
-    private static void FoodItemAction(UserInput input, Scanner sc) {
-        System.out.println("What do you want to do?");
-        System.out.println("a. Add FoodItem");
-        System.out.println("b. List FoodItem");
-        System.out.println("c. Update FoodItem");
-        System.out.println("d. Delete FoodItem");
-        String choose = sc.next();
-
-        switch (choose) {
-            case "a":
-                input.saveFoodItem();
-                break;
-            case "b":
-                input.findAllFoodItem();
-                break;
-
-        }
-    }
-
-}
+//}

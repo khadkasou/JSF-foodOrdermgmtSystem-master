@@ -28,9 +28,9 @@ public class CatergoryServiceImpl extends CategoryRepo{
     }
     
     
-    public Category save(Category clazz, CategoryRepo categoryRepo, String query) {
+    public Category save(Category clazz, CategoryRepo categoryRepo) {
         
-    return  categoryRepo.save( clazz, query);
+    return  categoryRepo.save( clazz);
     }
 
     
@@ -54,7 +54,7 @@ public class CatergoryServiceImpl extends CategoryRepo{
   
   
   public  Category updateById(Category category,Long id ,CategoryRepo categoryRepo){
-      
+      System.out.println("repo" + category.toString());
       return categoryRepo.updateById(category, id);
       
   }

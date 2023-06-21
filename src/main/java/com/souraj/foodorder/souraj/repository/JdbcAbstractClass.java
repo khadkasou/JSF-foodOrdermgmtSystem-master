@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,13 +22,12 @@ import java.util.logging.Logger;
 public abstract class JdbcAbstractClass<T extends IAbstractEntity> implements JdbcGenericRepo<T>{
 
     
-    private final Connection connection;
+    public final Connection connection;
     
     public JdbcAbstractClass(){
          Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            //
             String url = "jdbc:mysql://localhost:3306/foodordermanagement_db";
             String userName = "root";
             String password = "";
@@ -42,12 +42,14 @@ public abstract class JdbcAbstractClass<T extends IAbstractEntity> implements Jd
     
     
     @Override
-    public T save(T Object, String query) {
-        String sql = "INSERT INTO "+Object.getTableName()+" (username, password, fullname, email) "
-                + "VALUES (?, ?, ?, ?)";
+    public T save(T Object ) {
+        System.out.println("running....");
+       String sql = "INSERT INTO "+Object.getTableName()+" (name, createdAt, updatedAt) "
+                 + " VALUE ('"+Object.getName()+"','"+Object.getCreatedAt()+"','"+Object.getUpdatedAt()+"')";
         
         try {
-            PreparedStatement statement = connection.prepareStatement(query);
+            PreparedStatement statement = connection.prepareStatement(sql);
+          
             int rowsInserted = statement.executeUpdate();
             if(rowsInserted>0){
                 return Object;
@@ -85,10 +87,7 @@ public abstract class JdbcAbstractClass<T extends IAbstractEntity> implements Jd
         try {
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query);
-             
-                return resultSet;
-           
-               
+                 return resultSet;   
         } catch (SQLException ex) {
            ex.printStackTrace();
         }
@@ -97,7 +96,7 @@ public abstract class JdbcAbstractClass<T extends IAbstractEntity> implements Jd
     }
     @Override
     public ResultSet findAll(T Object) {
-      
+        System.out.println("'find all called: "+ Object.getTableName());
         String sql = "SELECT * FROM "+Object.getTableName();
         Statement statement;
         try {
@@ -114,11 +113,31 @@ public abstract class JdbcAbstractClass<T extends IAbstractEntity> implements Jd
 
   
 
-    @Override
-    public T updateById(T Object, Long id) {
-        return null;
-        
+@Override
+public T updateById(T Object, Long id) {
+    System.out.println("Update value is : "+ Object.getName() + "sdkf "+ Object.getCreatedAt());
+  String sql = "UPDATE " + Object.getTableName() + " SET name ='"+Object.getName()+"',"
+          + ""+"createdAt ='" +Object.getCreatedAt()+"',"
+          + ""+"updatedAt='" +Object.getUpdatedAt()+"' WHERE id ="+id;
+ 
+  try {
+    PreparedStatement statement = connection.prepareStatement(sql);
+      
+    int rowsUpdated = statement.executeUpdate();
+    if (rowsUpdated > 0) {
+      return Object;
     }
+  } catch (SQLException ex) {
+    ex.printStackTrace();
+  }
+  
+  return null;
+}
+
     
+
+
+
+
     
 }

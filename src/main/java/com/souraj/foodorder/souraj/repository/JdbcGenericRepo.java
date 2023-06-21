@@ -12,8 +12,8 @@ import java.sql.ResultSet;
  */
 public interface JdbcGenericRepo<T> {
     
-    
-   public T save(T Object,String query);
+   
+   public T save(T Object);
     
    public void deleteById(T Object ,Long id);
    

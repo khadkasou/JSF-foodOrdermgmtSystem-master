@@ -4,6 +4,8 @@
  */
 package com.souraj.foodorder.souraj.repository;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author ksouraj
@@ -11,6 +13,9 @@ package com.souraj.foodorder.souraj.repository;
 public abstract class AbstractEntity implements IAbstractEntity{
 
     private Long id;
+    private String name;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
     
     @Override
     public  void setId(long id){
@@ -19,11 +24,37 @@ public abstract class AbstractEntity implements IAbstractEntity{
 
     @Override
     public  Long getId(){
-        return  id;
-    }
-    
-    
+        return  this.id;
+    }  
  
+    @Override
+    public void setName(String name){
+        this.name=name;
+    }
+
+    @Override
+    public String getName(){
+        return this.name;
+             
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+
 
     
     
